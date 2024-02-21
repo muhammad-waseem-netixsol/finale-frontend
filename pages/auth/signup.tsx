@@ -9,7 +9,7 @@ import { User, PassVisibility } from "@/interfaces/interfaces";
 import useLogin from "@/zustand-store/loginStore/Login";
 
 const Signup = () => {
-  const { loading, signReqError, success, signUpHandler } = useSignUp();
+  const { loading, SignReqError, success, signUpHandler } = useSignUp();
   const { token} = useLogin();
   const { error, validateUser } = useValidation();
   const router = useRouter();
@@ -220,13 +220,13 @@ const Signup = () => {
           </button>
 
           <p className="w-full text-start text-red-500">
-            {Array.isArray(signReqError?.message)
-              ? signReqError?.message?.map((error: string) => (
+            {Array.isArray(SignReqError?.message)
+              ? SignReqError?.message?.map((error: string) => (
                   <>
                     {error} <br />
                   </>
                 ))
-              : signReqError?.message}
+              : SignReqError?.message}
           </p>
         </form>
        

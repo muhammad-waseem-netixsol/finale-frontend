@@ -143,7 +143,7 @@ useEffect(()=>{
           Login
         </button>
         <p className="w-full text-start text-red-500">
-            {httpReqError !== "" && httpReqError}
+            {httpReqError}
         </p>
       </form>
       <div className="font-mono py-5">
