@@ -5,7 +5,7 @@ import { devtools, persist, DevtoolsOptions } from 'zustand/middleware';
 interface LoginState {
   loading: boolean;
   success: boolean;
-  httpReqError: null | string;
+  httpReqError: string;
   token: null | string;
   isAuthenticated: boolean;
   loginHandler: (url: string, method: string, credentials: Record<string, string>) => Promise<void>;
@@ -27,12 +27,12 @@ const useLogin = create<LoginState>(
     persist((set) => ({
       loading: false,
       success: false,
-      httpReqError: null,
+      httpReqError: "",
       token: null,
       isAuthenticated: getInitialToken() !== 'null',
 
       loginHandler: async (url, method, credentials) => {
-        set({ loading: true, httpReqError: null });
+        set({ loading: true, httpReqError: "" });
         try {
           const response = await fetch(url, {
             headers: {
@@ -47,7 +47,7 @@ const useLogin = create<LoginState>(
             set({
               loading: false,
               success: false,
-              httpReqError: httpReqErrorData,
+              httpReqError: httpReqErrorData?.message,
               isAuthenticated: false,
               token: null,
             });
@@ -59,7 +59,7 @@ const useLogin = create<LoginState>(
           set({
             loading: false,
             success: true,
-            httpReqError: null,
+            httpReqError: "",
             isAuthenticated: true,
             token: data.token,
           });
@@ -77,7 +77,7 @@ const useLogin = create<LoginState>(
 
       logout: () => {
         localStorage.clear();
-        set({ isAuthenticated: false, httpReqError: null, token: null, success: false });
+        set({ isAuthenticated: false, httpReqError: "", token: null, success: false });
       },
     }),
     {
