@@ -4,7 +4,7 @@ interface NewsStoreState {
   allNews: any[]; // Adjust the type based on the structure of your news items
   loading: boolean;
   error: boolean;
-  totalPages: number | null;
+  totalPages: number;
   total: number | null;
   page: number;
   pageSize: number | null;
@@ -19,7 +19,7 @@ const useNewsStore = create<NewsStoreState>((set) => ({
   allNews: [],
   loading: false,
   error: false, // Adjusted the initial value to false based on the type
-  totalPages: null,
+  totalPages: 0,
   total: null,
   page: 1,
   pageSize: null,
