@@ -20,7 +20,6 @@ const TopCards: React.FC<TopCardsProps> = ({ bg, icon, earning, subtitle, title 
           <div className="ms-3">
             <h3 className="mb-0 font-weight-bold">{earning}</h3>
             <small className="text-muted">{subtitle}</small>
-            {title && <small className="text-muted">{title}</small>} {/* Render title only if it exists */}
           </div>
         </div>
       </CardBody>
