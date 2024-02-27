@@ -30,7 +30,7 @@ const useNewsStore = create<NewsStoreState>((set) => ({
     set({ loading: true });
     const token = JSON.parse(localStorage.getItem("loginState") || "");
    
-    const news = await fetch(`http://localhost:3001/news?page=${page}`, {
+    const news = await fetch(`https://finale-pz59.vercel.app/news?page=${page}`, {
       headers: {
         Authorization: "Bearer " + token.state.token,
         "Content-type": "application/json",
@@ -47,7 +47,7 @@ const useNewsStore = create<NewsStoreState>((set) => ({
     set({ singleNewsLoading: true });
     const token = JSON.parse(localStorage.getItem("loginState") || "");
     console.log(id);
-    const news = await fetch("http://localhost:3001/news/" + id, {
+    const news = await fetch("https://finale-pz59.vercel.app/news/" + id, {
       headers: {
         Authorization: "Bearer " + token.state.token,
       },
