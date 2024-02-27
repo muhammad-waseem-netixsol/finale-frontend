@@ -75,7 +75,7 @@ const Login = () => {
     if (!validate) {
       return;
     }
-    await loginHandler("http://localhost:3001/auth/login", "POST", {
+    await loginHandler("https://finale-pz59.vercel.app/auth/login", "POST", {
       email: user.email,
       password: user.password,
     }); 
