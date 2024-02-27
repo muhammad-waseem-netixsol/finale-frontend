@@ -79,7 +79,7 @@ const Signup = () => {
     //  submitting user
     if (validate) {
       await signUpHandler(
-        "http://localhost:3001/auth/register",
+        "https://finale-pz59.vercel.app/auth/register",
         "POST",
         JSON.stringify({
           username: user.username,
