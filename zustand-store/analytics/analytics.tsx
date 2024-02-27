@@ -36,7 +36,7 @@ const useAnalyticsStore = create<AnalyticsStoreState>((set) => ({
     set({ loading: true, error: "" });
     const token = JSON.parse(localStorage.getItem("loginState") || "");
     const analytics = await fetch(
-      "http://localhost:3001/news/analytics",
+      "https://finale-pz59.vercel.app/news/analytics",
       {
         headers: {
           "Content-type": "application/json",
@@ -69,7 +69,7 @@ const useAnalyticsStore = create<AnalyticsStoreState>((set) => ({
   getAuthorAnalytics: async () => {
     const token = JSON.parse(localStorage.getItem("loginState") || "");
     const analytics = await fetch(
-      "http://localhost:3001/news/author",
+      "https://finale-pz59.vercel.app/news/author",
       {
         headers: {
           "Content-type": "application/json",
